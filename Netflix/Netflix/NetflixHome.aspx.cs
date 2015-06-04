@@ -9,9 +9,12 @@ namespace Netflix
 {
     public partial class WebForm1 : System.Web.UI.Page
     {
+        private DatabaseQuery dq;
+        
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            dq = new DatabaseQuery();
+            int a = dq.example();
         }
     }
 }
