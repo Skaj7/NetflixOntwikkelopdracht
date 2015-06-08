@@ -33,8 +33,7 @@
 }
 
 #billboardvid{
-    z-index: 2;
-    position: absolute;
+    /*z-index: 2;*/
     max-height: 400px;
     margin-left: 20%;
     margin-right: 20%;
@@ -42,8 +41,7 @@
     margin: 0 auto;
     height: 100%;
     width: 100%;
-    transition: display 20s;
-    display: none;
+    display: block;
 }
 
 
