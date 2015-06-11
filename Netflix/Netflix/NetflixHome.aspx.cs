@@ -72,7 +72,7 @@ namespace Netflix
                     DbDataReader reader = com.ExecuteReader();
                     while (reader.Read())
                     {
-                        Label1.Text = Label1.Text + reader[2].ToString();
+                        Label2.Text = Label2.Text + reader[2].ToString();
                     }
                 }
         }
