@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="extra\Sense8-2.jpg" />
+    <Content Include="imgs.aspx" />
     <Content Include="Style\NetflixHome.css" />
     <Content Include="Web.config" />
     <Content Include="NetflixHome.aspx" />
@@ -80,6 +81,13 @@
   <ItemGroup>
     <Compile Include="Database.cs" />
     <Compile Include="DatabaseQuery.cs" />
+    <Compile Include="imgs.aspx.cs">
+      <DependentUpon>imgs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="imgs.aspx.designer.cs">
+      <DependentUpon>imgs.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="NetflixHome.aspx.cs">
       <DependentUpon>NetflixHome.aspx</DependentUpon>
