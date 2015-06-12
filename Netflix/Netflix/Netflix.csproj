@@ -64,6 +64,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Masterpage.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -74,19 +75,30 @@
   <ItemGroup>
     <Content Include="extra\Sense8-2.jpg" />
     <Content Include="imgs.aspx" />
+    <Content Include="Style\Masterpage.css" />
     <Content Include="Style\NetflixHome.css" />
+    <Content Include="Style\Test.css" />
+    <Content Include="index.aspx" />
+    <Content Include="video.ascx" />
+    <Content Include="video1.aspx" />
     <Content Include="Web.config" />
     <Content Include="NetflixHome.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Database.cs" />
-    <Compile Include="DatabaseQuery.cs" />
+    <Compile Include="DbCon.cs" />
     <Compile Include="imgs.aspx.cs">
       <DependentUpon>imgs.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="imgs.aspx.designer.cs">
       <DependentUpon>imgs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masterpage.Master.cs">
+      <DependentUpon>Masterpage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masterpage.Master.designer.cs">
+      <DependentUpon>Masterpage.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="NetflixHome.aspx.cs">
@@ -95,6 +107,27 @@
     </Compile>
     <Compile Include="NetflixHome.aspx.designer.cs">
       <DependentUpon>NetflixHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="video.ascx.cs">
+      <DependentUpon>video.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="video.ascx.designer.cs">
+      <DependentUpon>video.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="video1.aspx.cs">
+      <DependentUpon>video1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="video1.aspx.designer.cs">
+      <DependentUpon>video1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <PropertyGroup>
