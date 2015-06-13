@@ -15,7 +15,7 @@ namespace Netflix
         public string  Name { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            foreach (Control c in (Control)video)
+            //foreach (Control c in (Control)video)
         }
 
         public void loadData()
