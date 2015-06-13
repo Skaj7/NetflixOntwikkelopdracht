@@ -22,7 +22,7 @@ namespace Netflix
         {
             var con = DbCon.GetOracleConnection();
             var com = con.CreateCommand();
-            com.CommandText = "SELECT videolink, videoid from video where videoid='"+id+"'";
+            com.CommandText = "SELECT videolink, image, titel from video where videoid='"+id+"'";
 
             var r = com.ExecuteReader();
 
@@ -30,7 +30,9 @@ namespace Netflix
             {
                 var uc = (video)Page.LoadControl("~/video.ascx");
                 uc.VideoLink = r["videolink"].ToString();
-                uc.id = r["videoid"].ToString();
+                uc.id = id.ToString(); //r["videoid"].ToString();
+                uc.PhotoLink = r["image"].ToString();
+                uc.Name = r["titel"].ToString();
 
                 innerContent.Controls.Add(uc);
                 uc.loadData();

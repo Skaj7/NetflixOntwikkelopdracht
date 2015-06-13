@@ -66,6 +66,7 @@
   <ItemGroup>
     <Content Include="index.aspx" />
     <Content Include="Masterpage.Master" />
+    <Content Include="Login.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -75,9 +76,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="extra\Sense8-2.jpg" />
-    <Content Include="imgs.aspx" />
-    <Content Include="Style\Masterpage.css" />
+    <Content Include="Style\indexStyle.css" />
     <Content Include="Style\NetflixHome.css" />
+    <Content Include="Style\masterStyle.css" />
+    <Content Include="Style\loginStyle.css" />
     <Content Include="Style\Test.css" />
     <Content Include="video.ascx" />
     <Content Include="video1.aspx" />
@@ -86,13 +88,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbCon.cs" />
-    <Compile Include="imgs.aspx.cs">
-      <DependentUpon>imgs.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="imgs.aspx.designer.cs">
-      <DependentUpon>imgs.aspx</DependentUpon>
-    </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -128,6 +123,13 @@
     </Compile>
     <Compile Include="video1.aspx.designer.cs">
       <DependentUpon>video1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <PropertyGroup>

@@ -22,13 +22,13 @@ namespace Netflix {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor videotoe;
         
         /// <summary>
-        /// videolinks control.
+        /// photo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl videolinks;
+        protected global::System.Web.UI.HtmlControls.HtmlImage photo;
         
         /// <summary>
         /// Toevideo control.
@@ -40,12 +40,12 @@ namespace Netflix {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor Toevideo;
         
         /// <summary>
-        /// videoid control.
+        /// videoname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl videoid;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl videoname;
     }
 }

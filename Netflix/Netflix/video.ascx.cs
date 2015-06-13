@@ -11,6 +11,8 @@ namespace Netflix
     {
         public string VideoLink { get; set; }
         public string id { get; set; }
+        public string PhotoLink { get; set; }
+        public string  Name { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -18,8 +20,9 @@ namespace Netflix
 
         public void loadData()
         {
-            videolinks.InnerText = VideoLink;
-            videoid.InnerText = id;
+            videoname.InnerText = Name;
+            //videoid.InnerText = id;
+            photo.Src = PhotoLink;
             Toevideo.HRef = "http://localhost:10187/video" + id + ".aspx";
             videotoe.HRef = VideoLink;
         }

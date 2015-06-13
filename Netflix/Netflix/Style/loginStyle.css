@@ -1,0 +1,9 @@
+﻿body {
+}
+
+#loginpos{
+  position: relative;
+  left: 10%;
+  top: 100px;
+  float: left;
+}
