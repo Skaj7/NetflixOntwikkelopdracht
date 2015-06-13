@@ -64,6 +64,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="index.aspx" />
     <Content Include="Masterpage.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -78,7 +79,6 @@
     <Content Include="Style\Masterpage.css" />
     <Content Include="Style\NetflixHome.css" />
     <Content Include="Style\Test.css" />
-    <Content Include="index.aspx" />
     <Content Include="video.ascx" />
     <Content Include="video1.aspx" />
     <Content Include="Web.config" />
@@ -92,6 +92,13 @@
     </Compile>
     <Compile Include="imgs.aspx.designer.cs">
       <DependentUpon>imgs.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Masterpage.Master.cs">
       <DependentUpon>Masterpage.Master</DependentUpon>
@@ -107,13 +114,6 @@
     </Compile>
     <Compile Include="NetflixHome.aspx.designer.cs">
       <DependentUpon>NetflixHome.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="index.aspx.cs">
-      <DependentUpon>index.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="index.aspx.designer.cs">
-      <DependentUpon>index.aspx</DependentUpon>
     </Compile>
     <Compile Include="video.ascx.cs">
       <DependentUpon>video.ascx</DependentUpon>
