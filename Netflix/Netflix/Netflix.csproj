@@ -77,10 +77,12 @@
   <ItemGroup>
     <Content Include="extra\Sense8-2.jpg" />
     <Content Include="Profile.aspx" />
+    <Content Include="ProfileAccount.ascx" />
     <Content Include="Style\indexStyle.css" />
     <Content Include="Style\NetflixHome.css" />
     <Content Include="Style\masterStyle.css" />
     <Content Include="Style\loginStyle.css" />
+    <Content Include="Style\profileStyle.css" />
     <Content Include="Style\Test.css" />
     <Content Include="video.ascx" />
     <Content Include="video1.aspx" />
@@ -109,6 +111,13 @@
     </Compile>
     <Compile Include="Profile.aspx.designer.cs">
       <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProfileAccount.ascx.cs">
+      <DependentUpon>ProfileAccount.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProfileAccount.ascx.designer.cs">
+      <DependentUpon>ProfileAccount.ascx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="NetflixHome.aspx.cs">

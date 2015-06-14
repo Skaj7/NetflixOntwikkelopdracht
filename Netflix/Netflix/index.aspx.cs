@@ -13,30 +13,27 @@ namespace Netflix
         protected void Page_Load(object sender, EventArgs e)
         {
             var text = Search.Text;
-            if (Session["loggedIn"] is bool && (bool)Session["loggedIn"])
+            if (Session["loggedIn"] is bool && !(bool)Session["loggedIn"])
             {
                 Response.Redirect("http://localhost:10187/Login.aspx");
             }
             if (text == "")
             {
-                for (int i = 1; i <= 3; i++)
-                {
-                    LoadVideo(i);
-                }
+                //for (int i = 1; i <= 3; i++)
+                //{
+                    LoadVideo(1, (string)Session["profiel"]);
+                //}
             }
         }
 
-        private void LoadVideo(int id)
+        private void LoadVideo(int id, string profileid)
         {
             var con = DbCon.GetOracleConnection();
             var cmd = con.CreateCommand();
-            cmd.CommandText = "SELECT videolink, image, titel from video where videoid= :id";
+            cmd.CommandText = "SELECT videolink, image, titel from video v, profiel_video pv WHERE v.videoid = pv.videoid AND profielid = :profileid";
+                //SELECT videolink, image, titel from video where videoid= :id";
 
-            var paraId = cmd.CreateParameter();
-            paraId.DbType = DbType.String;
-            paraId.Value = id.ToString();
-            paraId.ParameterName = "id";
-            paraId.Direction = ParameterDirection.Input;
+            var paraId = DbCon.GetParameter(profileid.ToString());
 
             cmd.Parameters.Add(paraId);
 
@@ -60,20 +57,8 @@ namespace Netflix
             var cmd = con.CreateCommand();
             cmd.CommandText = "SELECT videolink, image, titel FROM video where videoid= :id AND UPPER(titel) LIKE UPPER('%'||:search||'%')";
 
-            var paraId1 = cmd.CreateParameter();
-            paraId1.DbType = DbType.String;
-            paraId1.Value = id.ToString();
-            paraId1.ParameterName = "id";
-            paraId1.Direction = ParameterDirection.Input;
-
-            var paraSearch = cmd.CreateParameter();
-            paraSearch.DbType = DbType.String;
-            paraSearch.Value = search;
-            paraSearch.ParameterName = "search";
-            paraSearch.Direction = ParameterDirection.Input;
-
-            cmd.Parameters.Add(paraId1);
-            cmd.Parameters.Add(paraSearch);
+            cmd.Parameters.Add(DbCon.GetParameter(id.ToString()));
+            cmd.Parameters.Add(DbCon.GetParameter(search.ToString()));
 
             var r = cmd.ExecuteReader();
 

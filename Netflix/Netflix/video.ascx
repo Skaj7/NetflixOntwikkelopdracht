@@ -5,7 +5,7 @@
     </a>
    
 
-    <a href="#" id="Toevideo" runat="server">
+    <a href="#" id="Toevideo" onClick="myFunction()" runat="server">
     <div class="videoid1" runat="server" id="videoname"></div>
     </a>
     </div>

@@ -7,16 +7,9 @@ using System.Web.UI.WebControls;
 
 namespace Netflix
 {
-    public partial class video1 : System.Web.UI.Page
+    public partial class ProfileAccount : System.Web.UI.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-
-            //tring a = s.Substring(9, 1);
-            //GetInfo(a);
-        }
-
-        void GetInfo(string iets)
         {
 
         }

@@ -13,8 +13,9 @@
     <form id="form1" runat="server">
         <ul id="topbars" class="pos">
             <div><a id="netflixpage" href="http://www2.netflix.com/WiHome"></a></div>
-            <li><a href="http://localhost:10187/index.aspx">Home</a></li>
             <li><a href="http://localhost:10187/Login.aspx">Login</a></li>
+            <li><a href="http://localhost:10187/Profile.aspx">Profiel</a></li>
+            <li><a href="http://localhost:10187/index.aspx">Home</a></li>
             <li><a href="#contact">Contact</a></li>
             <li><a href="#about">About</a></li>
         </ul>
