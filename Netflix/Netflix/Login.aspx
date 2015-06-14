@@ -3,7 +3,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="Content" runat="server">
-    <link href="Style/loginStyle.css" rel="stylesheet" />
+    <link href="Style/loginStyle.css" rel="stylesheet" runat="server" />
         <div id="loginpos">
             <div>
             <asp:Label Text="e-mail adres" runat="server" />

@@ -17,20 +17,25 @@ namespace Netflix
             {
                 Response.Redirect("http://localhost:10187/Login.aspx");
             }
+            string profile = (string)Session["profiel"];
+            if (profile == "" || profile == null)
+            {
+                Response.Redirect("http://localhost:10187/Profile.aspx");
+            }
             if (text == "")
             {
                 //for (int i = 1; i <= 3; i++)
                 //{
-                    LoadVideo(1, (string)Session["profiel"]);
+                    LoadVideo((string)Session["profiel"]);
                 //}
             }
         }
 
-        private void LoadVideo(int id, string profileid)
+        private void LoadVideo(string profileid)
         {
             var con = DbCon.GetOracleConnection();
             var cmd = con.CreateCommand();
-            cmd.CommandText = "SELECT videolink, image, titel from video v, profiel_video pv WHERE v.videoid = pv.videoid AND profielid = :profileid";
+            cmd.CommandText = "SELECT videolink, v.videoid, image, titel from video v, profiel_video pv WHERE v.videoid = pv.videoid AND profielid = :profileid";
                 //SELECT videolink, image, titel from video where videoid= :id";
 
             var paraId = DbCon.GetParameter(profileid.ToString());
@@ -43,7 +48,7 @@ namespace Netflix
             {
                 var uc = (video)Page.LoadControl("~/video.ascx");
                 uc.VideoLink = r["videolink"].ToString();
-                uc.id = id.ToString(); 
+                uc.id = r["videoid"].ToString(); 
                 uc.PhotoLink = r["image"].ToString();
                 uc.Name = r["titel"].ToString();
 
@@ -51,13 +56,13 @@ namespace Netflix
                 uc.loadData();
             } 
         }
-        private void LoadSearch(int id, string search)
+        private void LoadSearch(string profileid, string search)
         {
             var con = DbCon.GetOracleConnection();
             var cmd = con.CreateCommand();
-            cmd.CommandText = "SELECT videolink, image, titel FROM video where videoid= :id AND UPPER(titel) LIKE UPPER('%'||:search||'%')";
+            cmd.CommandText = "SELECT videolink, v.videoid, image, titel from video v, profiel_video pv WHERE v.videoid = pv.videoid AND profielid = :profileid AND UPPER(titel) LIKE UPPER('%'||:search||'%')";
 
-            cmd.Parameters.Add(DbCon.GetParameter(id.ToString()));
+            cmd.Parameters.Add(DbCon.GetParameter(profileid.ToString()));
             cmd.Parameters.Add(DbCon.GetParameter(search.ToString()));
 
             var r = cmd.ExecuteReader();
@@ -66,7 +71,7 @@ namespace Netflix
             {
                 var uc = (video)Page.LoadControl("~/video.ascx");
                 uc.VideoLink = r["videolink"].ToString();
-                uc.id = id.ToString(); 
+                uc.id = r["videoid"].ToString();
                 uc.PhotoLink = r["image"].ToString();
                 uc.Name = r["titel"].ToString();
 
@@ -77,11 +82,7 @@ namespace Netflix
 
         protected void Search_TextChanged(object sender, EventArgs e)
         {
-
-            for (int i = 1; i <= 3; i++)
-            {
-                LoadSearch(i, Search.Text.ToString());
-            }
+            LoadSearch((string)Session["profiel"], Search.Text.ToString());
         }
     }
 }

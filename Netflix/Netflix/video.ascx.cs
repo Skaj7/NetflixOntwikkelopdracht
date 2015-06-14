@@ -23,7 +23,7 @@ namespace Netflix
             videoname.InnerText = Name;
             //videoid.InnerText = id;
             photo.Src = PhotoLink;
-            Toevideo.HRef = "http://localhost:10187/video"+id+".aspx";
+            Toevideo.HRef = "http://localhost:10187/video1.aspx?id="+id;
             Toevideo.Name = id;
             Session["video" + id] = id;
             videotoe.HRef = VideoLink;

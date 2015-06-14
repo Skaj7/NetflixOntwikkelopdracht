@@ -1,0 +1,33 @@
+﻿body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#infodiv{
+    background-color: #cccccc;
+    position: relative;
+    left: 10%;
+    right: 10%;
+    top: 100px;
+    float: left;
+}
+
+#text{
+    float: left;
+    width: 100px;
+    height: 200px;
+    padding-top: 50px;
+    padding-left: 50px;
+}
+
+#photo{
+    float: left;
+    padding-bottom: 50px;
+    padding-left: 20px;
+    padding-top: 50px;
+}
+
+#info{
+    float: left;
+    padding-left: 40px;
+    padding-top: 50px;
+}

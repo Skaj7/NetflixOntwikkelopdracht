@@ -83,10 +83,10 @@
     <Content Include="Style\loginStyle.css" />
     <Content Include="Style\profileStyle.css" />
     <Content Include="Style\Test.css" />
+    <Content Include="Style\video1Style.css" />
     <Content Include="video.ascx" />
     <Content Include="video1.aspx" />
     <Content Include="Web.config" />
-    <Content Include="NetflixHome.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbCon.cs" />
@@ -112,13 +112,6 @@
       <DependentUpon>Profile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="NetflixHome.aspx.cs">
-      <DependentUpon>NetflixHome.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="NetflixHome.aspx.designer.cs">
-      <DependentUpon>NetflixHome.aspx</DependentUpon>
-    </Compile>
     <Compile Include="video.ascx.cs">
       <DependentUpon>video.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -32,5 +32,53 @@ namespace Netflix
 
             return para;
         }
+
+        public static void InsertProfile(string afbeelding, string naam, string leeftijd, string taal, string accountid)
+        {
+            var con = DbCon.GetOracleConnection();
+            var cmd = con.CreateCommand();
+
+
+            cmd.CommandText = "INSERT INTO profiel VALUES(:profielid, :afbeelding, :naam, :leeftijd, :taal, 'Auto', null, :accountid ,null)";
+
+            int profielid = GetNextProfileid();
+
+            var paraPro = cmd.CreateParameter();
+            paraPro.DbType = DbType.Int32;
+            paraPro.Value = profielid;
+            paraPro.ParameterName = "profielid";
+            paraPro.Direction = ParameterDirection.Input;
+
+            var paraAcc = cmd.CreateParameter();
+            paraAcc.DbType = DbType.Int32;
+            paraAcc.Value =  Convert.ToInt32(accountid);
+            paraAcc.ParameterName = "accountid";
+            paraAcc.Direction = ParameterDirection.Input;
+
+            cmd.Parameters.Add(paraPro);
+            cmd.Parameters.Add(DbCon.GetParameter(afbeelding));
+            cmd.Parameters.Add(DbCon.GetParameter(naam));
+            cmd.Parameters.Add(DbCon.GetParameter(leeftijd));
+            cmd.Parameters.Add(DbCon.GetParameter(taal));
+            cmd.Parameters.Add(paraAcc);
+            
+
+            cmd.ExecuteNonQuery();
+
+        }
+        public static int GetNextProfileid()
+        {
+            var con = DbCon.GetOracleConnection();
+            var cmd = con.CreateCommand();
+            cmd.CommandText = "SELECT MAX(profielid) from profiel";
+
+            var p = (decimal)cmd.ExecuteScalar();
+
+            int profielid = (int)p;
+
+            profielid++;
+
+            return profielid;
+        }
     }
 }

@@ -16,6 +16,10 @@ namespace Netflix
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["loggedIn"] is bool && !(bool)Session["loggedIn"])
+            {
+                Response.Redirect("http://localhost:10187/Login.aspx");
+            }
             long id = (long)Session["account"];
             GetProfile(id);
         }
@@ -36,13 +40,19 @@ namespace Netflix
                 {
                     lbl1.Text = r["naam"].ToString();
                     leeftijd1 = r["profielid"].ToString();
-                    afbeelding1.Src = r["afbeelding"].ToString();
+                    image1.Src = r["afbeelding"].ToString();
                 }
                 if (i == 2)
                 {
                     lbl2.Text = r["naam"].ToString();
                     leeftijd2 = r["profielid"].ToString();
-                    afbeelding2.Src = r["afbeelding"].ToString();
+                    image2.Src = r["afbeelding"].ToString();
+                }
+                if (i == 3)
+                {
+                    lbl3.Text = r["naam"].ToString();
+                    leeftijd3 = r["profielid"].ToString();
+                    image3.Src = r["afbeelding"].ToString();
                 }
 
                 i++;
@@ -58,6 +68,18 @@ namespace Netflix
         protected void profiel2_Click(object sender, EventArgs e)
         {
             Session["profiel"] = leeftijd2;
+        }
+
+        protected void newprofile_Click(object sender, EventArgs e)
+        {
+            long id = (long)Session["account"];
+            string accountid = id.ToString();
+            DbCon.InsertProfile(tbafbeelding.Text, tbnaam.Text, tbleeftijd.Text, tbtaal.Text, accountid);
+        }
+
+        protected void profile3_Click(object sender, EventArgs e)
+        {
+            Session["profiel"] = leeftijd3;
         }
     }
 }

@@ -3,21 +3,41 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Content" runat="server">
 
-    <link href="Style/profileStyle.css" rel="stylesheet" />
+    <link href="Style/profileStyle.css" rel="stylesheet" runat="server" />
         <div id="loginpos">
+            <p>Kies je profiel</p>
             <div style="float:left">
-            <asp:Label Text="e-mail adres" id="lbl1" runat="server" />
-            <asp:TextBox ID="user" runat="server"></asp:TextBox>
-                <asp:Button ID="profiel1" runat="server" Text="profiel" OnClick="profiel1_Click" />
-                <img src="#" id="afbeelding1" alt="Alternate Text" runat="server" />
-            </div><div style="float:right">
-            <asp:Label Text="Wachtwoord" ID="lbl2" runat="server" />
-            <asp:TextBox ID="password" runat="server"></asp:TextBox>
-                <asp:Button ID="profiel2" runat="server" Text="profiel" OnClick="profiel2_Click"/>
-                <img src="#" id="afbeelding2" alt="Alternate Text" runat="server" />
+            <asp:Label Text="e" id="lbl1" runat="server" />
+                <asp:Button ID="profile1" runat="server" Text="profiel" OnClick="profiel1_Click" />
+                <img src="#" id="image1" alt="Alternate Text" runat="server" style="max-height: 150px; max-width: 150px;" />
+            </div>
+            <div style="float:left">
+            <asp:Label Text="" ID="lbl2" runat="server" />
+                <asp:Button ID="profile2" runat="server" Text="profiel" OnClick="profiel2_Click"/>
+                <img src="#" id="image2" alt="Alternate Text" runat="server" style="max-height: 150px; max-width: 150px;" />
+            </div>
+            <div style="float:right">
+            <asp:Label Text="" ID="lbl3" runat="server" />
+                <asp:Button ID="profile3" runat="server" Text="profiel3" OnClick="profile3_Click"/>
+                <img src="#" id="image3" alt="Alternate Text" runat="server" style="max-height: 150px; max-width: 150px;"/>
             </div>
         </div>    
+    
 
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentDown" runat="server">
+            <p style="  text-align: center; text-decoration: underline;">Nieuw profiel aanmaken</p>
+    <div style="float:left; margin-left:30%; font-family: Arial, Helvetica, sans-serif; font-weight: bold; padding: 5px;">   
+        AFBEELDING <br />
+        NAAM <br />
+        LEEFTIJDSCATEGORIE <br />
+        TAAL <br />
+    </div>
+    <div id="NewProfile" style="width: 300px; margin-left: 50px; margin-bottom: 80px; float:left;">
+        <asp:TextBox style="height: 14px;" ID="tbafbeelding" runat="server"></asp:TextBox>
+        <asp:TextBox style="height: 14px;" ID="tbnaam" runat="server"></asp:TextBox>
+        <asp:TextBox style="height: 14px;" ID="tbleeftijd" runat="server"></asp:TextBox>
+        <asp:TextBox style="height: 14px;" ID="tbtaal" runat="server"></asp:TextBox>
+    </div>
+    <asp:Button ID="newprofile" runat="server" Text="aanmaken" OnClick="newprofile_Click" />
 </asp:Content>
