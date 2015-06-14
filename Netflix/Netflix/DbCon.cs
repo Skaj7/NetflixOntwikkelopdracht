@@ -33,8 +33,16 @@ namespace Netflix
             return para;
         }
 
-        public static void InsertProfile(string afbeelding, string naam, string leeftijd, string taal, string accountid)
+        public static bool InsertProfile(string afbeelding, string naam, string leeftijd, string taal, string accountid)
         {
+            if (afbeelding == "" || naam == "" || leeftijd == "" || taal == "")
+            {
+                return false;
+            }
+            if (leeftijd != "Kleine kinderen" || leeftijd != "Oudere kinderen" || leeftijd != "Tieners" || leeftijd != "Volwassenen")
+            {
+                return false;
+            }
             var con = DbCon.GetOracleConnection();
             var cmd = con.CreateCommand();
 
@@ -64,6 +72,8 @@ namespace Netflix
             
 
             cmd.ExecuteNonQuery();
+
+            return true;
 
         }
         public static int GetNextProfileid()

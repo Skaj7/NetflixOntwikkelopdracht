@@ -76,13 +76,13 @@ namespace Netflix {
         protected global::System.Web.UI.WebControls.Label lbl3;
         
         /// <summary>
-        /// profile3 control.
+        /// profile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button profile3;
+        protected global::System.Web.UI.WebControls.Button profile;
         
         /// <summary>
         /// image3 control.

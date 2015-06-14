@@ -18,7 +18,7 @@
             </div>
             <div style="float:right">
             <asp:Label Text="" ID="lbl3" runat="server" />
-                <asp:Button ID="profile3" runat="server" Text="profiel3" OnClick="profile3_Click"/>
+                <asp:Button ID="profile" runat="server" Text="profiel3" OnClick="profile3_Click"/>
                 <img src="#" id="image3" alt="Alternate Text" runat="server" style="max-height: 150px; max-width: 150px;"/>
             </div>
         </div>    
@@ -31,13 +31,14 @@
         AFBEELDING <br />
         NAAM <br />
         LEEFTIJDSCATEGORIE <br />
+        <br />
         TAAL <br />
     </div>
     <div id="NewProfile" style="width: 300px; margin-left: 50px; margin-bottom: 80px; float:left;">
-        <asp:TextBox style="height: 14px;" ID="tbafbeelding" runat="server"></asp:TextBox>
-        <asp:TextBox style="height: 14px;" ID="tbnaam" runat="server"></asp:TextBox>
-        <asp:TextBox style="height: 14px;" ID="tbleeftijd" runat="server"></asp:TextBox>
-        <asp:TextBox style="height: 14px;" ID="tbtaal" runat="server"></asp:TextBox>
+        <asp:TextBox style="height: 14px;" ID="tbafbeelding" runat="server"></asp:TextBox> Not NULL
+        <asp:TextBox style="height: 14px;" ID="tbnaam" runat="server"></asp:TextBox> Not NULL
+        <asp:TextBox style="height: 14px;" ID="tbleeftijd" runat="server"></asp:TextBox> Kleine kinderen, Oudere kinderen, Tieners, Volwassenen
+        <asp:TextBox style="height: 14px;" ID="tbtaal" runat="server"></asp:TextBox> Not NULL
     </div>
-    <asp:Button ID="newprofile" runat="server" Text="aanmaken" OnClick="newprofile_Click" />
+    <asp:Button ID="newprofile" runat="server" Text="aanmaken" OnClick="newprofile_Click" OnClientClick="Onreturn confirm('Are you sure you want to delete?')" />
 </asp:Content>

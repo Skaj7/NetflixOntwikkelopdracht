@@ -74,7 +74,11 @@ namespace Netflix
         {
             long id = (long)Session["account"];
             string accountid = id.ToString();
-            DbCon.InsertProfile(tbafbeelding.Text, tbnaam.Text, tbleeftijd.Text, tbtaal.Text, accountid);
+            bool result = DbCon.InsertProfile(tbafbeelding.Text, tbnaam.Text, tbleeftijd.Text, tbtaal.Text, accountid);
+            if (!result)
+            {
+                newprofile.Text = "failed to insert";
+            }
         }
 
         protected void profile3_Click(object sender, EventArgs e)
