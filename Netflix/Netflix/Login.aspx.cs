@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data;
 
 namespace Netflix
 {
@@ -55,7 +55,6 @@ namespace Netflix
             cmd.Parameters.Add(DbCon.GetParameter(pass.ToString()));
 
             long connect = (long)cmd.ExecuteScalar();
-
 
             if (connect > 0)
             {

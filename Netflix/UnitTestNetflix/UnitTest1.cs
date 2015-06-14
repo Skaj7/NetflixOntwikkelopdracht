@@ -2,8 +2,6 @@
 using System;
 using System.Data;
 
-
-
 namespace UnitTestNetflix
 {
     [TestClass]
@@ -18,7 +16,6 @@ namespace UnitTestNetflix
             var r = cmd.ExecuteReader();
 
             r.Read();
-
         }
         [TestMethod]
         public void TestGetNextProfileid()//controle of profielid goed wordt teruggegeven
@@ -48,6 +45,5 @@ namespace UnitTestNetflix
             Assert.AreEqual(false, Netflix.DbCon.InsertProfile("dasd", "sad", "Volwassenen", "", "1"));
             Assert.AreEqual(false, Netflix.DbCon.InsertProfile("sdasd", "sda", "asfsa", "sfasfas", "1"));
         }
-
     }
 }

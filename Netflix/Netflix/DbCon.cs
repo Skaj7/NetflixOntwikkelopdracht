@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Oracle.ManagedDataAccess.Client;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.Common;
 using System.Linq;
 using System.Web;
-using Oracle.ManagedDataAccess.Client;
-using System.Data;
 
 namespace Netflix
 {
@@ -49,7 +49,6 @@ namespace Netflix
             var con = DbCon.GetOracleConnection();
             var cmd = con.CreateCommand();
 
-
             cmd.CommandText = "INSERT INTO profiel VALUES(:profielid, :afbeelding, :naam, :leeftijd, :taal, 'Auto', null, :accountid ,null)";
 
             int profielid = GetNextProfileid();
@@ -73,11 +72,9 @@ namespace Netflix
             cmd.Parameters.Add(DbCon.GetParameter(taal));
             cmd.Parameters.Add(paraAcc);
             
-
             cmd.ExecuteNonQuery();
 
             return true;
-
         }
         //return volgende profielid(max+1)
         public static int GetNextProfileid()

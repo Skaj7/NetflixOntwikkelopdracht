@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data;
 
 namespace Netflix
 {
@@ -35,8 +35,7 @@ namespace Netflix
             var r = cmd.ExecuteReader();
             int i = 1;
             while (r.Read())
-            {
-                
+            {            
                 if (i == 1)
                 {
                     lbl1.Text = r["naam"].ToString();
@@ -55,10 +54,8 @@ namespace Netflix
                     leeftijd3 = r["profielid"].ToString();
                     image3.Src = r["afbeelding"].ToString();
                 }
-
                 i++;
             }
-
         }
 
         protected void profiel1_Click(object sender, EventArgs e)
