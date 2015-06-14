@@ -13,30 +13,61 @@ namespace Netflix
         protected void Page_Load(object sender, EventArgs e)
         {
             Session.Clear();
-            Session["loggedIn"] = false;
+            Session["loggedIn"] = false;//auto uitloggen als je op de inlogpagina komt
         }
 
         protected void Login_Click(object sender, EventArgs e)
         {
-            var mail = "kaj.suiker@hotmail.com";//user.Text;
-            var pass = "hoihoi";//password.Text;
+            bool result = Login();//checkt je inloggegevens
+            if (!result)
+            {
+                btnLogin.Text = "Inloggen is gefaald";
+            }
+            else
+            {
+                btnLogin.Text = "U bent ingelogd";
+            }
+        }
+        //returned bool voor geslaagd of niet
+        public bool Login()
+        {
+            var mail = user.Text;
+            var pass = password.Text;
+            var con1 = DbCon.GetOracleConnection();
+            var cmd1 = con1.CreateCommand();
+            cmd1.CommandText = "SELECT COUNT(ACCOUNTID) FROM account WHERE email = :mail AND wachtwoord = :pass";
+
+            cmd1.Parameters.Add(DbCon.GetParameter(mail.ToString()));
+            cmd1.Parameters.Add(DbCon.GetParameter(pass.ToString()));
+
+            var count = (decimal)cmd1.ExecuteScalar(); //kijkt of jouw account bestaat
+
+            if (count == 0)
+            {
+                return false;
+            }
             var con = DbCon.GetOracleConnection();
             var cmd = con.CreateCommand();
+
             cmd.CommandText = "SELECT ACCOUNTID FROM account WHERE email = :mail AND wachtwoord = :pass";
 
             cmd.Parameters.Add(DbCon.GetParameter(mail.ToString()));
             cmd.Parameters.Add(DbCon.GetParameter(pass.ToString()));
 
             long connect = (long)cmd.ExecuteScalar();
+
+
             if (connect > 0)
             {
-                Session["loggedIn"] = true;
-                Session["account"] = connect;
+                Session["loggedIn"] = true;//onthoud ingelog
+                Session["account"] = connect;//onthoud accountId
+                return true;
             }
             else
             {
                 Session.Clear();
                 Session["loggedIn"] = false;
+                return false;
             }
         }
     }

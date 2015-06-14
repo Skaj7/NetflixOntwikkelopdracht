@@ -11,14 +11,16 @@ namespace Netflix
 {
     public static class DbCon
     {
+        //openend de oracle database connectie
+        //return dbconnectie
         public static DbConnection GetOracleConnection()
         {
             var con = OracleClientFactory.Instance.CreateConnection();
-            con.ConnectionString = ConfigurationManager.ConnectionStrings["OracleConnection"].ConnectionString;
+            con.ConnectionString = ConfigurationManager.ConnectionStrings["OracleConnection"].ConnectionString;//connection string van web.config
             con.Open();
             return con;
         }
-
+        //returned een parameter
         public static DbParameter GetParameter(string name)
         {
             var con = DbCon.GetOracleConnection();
@@ -32,14 +34,15 @@ namespace Netflix
 
             return para;
         }
-
+        //maakt de insert door eerst het volgende profielid optehalen, daarna de profiel insert
+        //return bool, check of het gelukt is
         public static bool InsertProfile(string afbeelding, string naam, string leeftijd, string taal, string accountid)
         {
-            if (afbeelding == "" || naam == "" || leeftijd == "" || taal == "")
+            if (afbeelding == "" || naam == "" || leeftijd == "" || taal == "")//check null
             {
                 return false;
             }
-            if (leeftijd != "Kleine kinderen" || leeftijd != "Oudere kinderen" || leeftijd != "Tieners" || leeftijd != "Volwassenen")
+            if (leeftijd != "Kleine kinderen" && leeftijd != "Oudere kinderen" && leeftijd != "Tieners" && leeftijd != "Volwassenen")//check constraint
             {
                 return false;
             }
@@ -76,6 +79,7 @@ namespace Netflix
             return true;
 
         }
+        //return volgende profielid(max+1)
         public static int GetNextProfileid()
         {
             var con = DbCon.GetOracleConnection();

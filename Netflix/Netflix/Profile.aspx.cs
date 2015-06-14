@@ -16,13 +16,14 @@ namespace Netflix
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["loggedIn"] is bool && !(bool)Session["loggedIn"])
+            if (Session["loggedIn"] is bool && !(bool)Session["loggedIn"])//check of je bent ingelogd
             {
-                Response.Redirect("http://localhost:10187/Login.aspx");
+                Response.Redirect("http://localhost:10187/Login.aspx");//anders terug naar loginpagina
             }
             long id = (long)Session["account"];
             GetProfile(id);
         }
+        //maakt alle beschibare profielen aan
         private void GetProfile(long id)
         {
             var con = DbCon.GetOracleConnection();
@@ -62,7 +63,7 @@ namespace Netflix
 
         protected void profiel1_Click(object sender, EventArgs e)
         {
-            Session["profiel"] = leeftijd1;
+            Session["profiel"] = leeftijd1;//session voor de leeftijd
         }
 
         protected void profiel2_Click(object sender, EventArgs e)
@@ -73,7 +74,7 @@ namespace Netflix
         protected void newprofile_Click(object sender, EventArgs e)
         {
             long id = (long)Session["account"];
-            string accountid = id.ToString();
+            string accountid = id.ToString();//creart een nieuw profiel.
             bool result = DbCon.InsertProfile(tbafbeelding.Text, tbnaam.Text, tbleeftijd.Text, tbtaal.Text, accountid);
             if (!result)
             {

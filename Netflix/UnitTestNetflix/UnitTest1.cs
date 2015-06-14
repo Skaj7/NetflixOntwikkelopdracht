@@ -10,7 +10,7 @@ namespace UnitTestNetflix
     public class UnitTest1
     {
         [TestMethod]
-        public void TestGetOracleConnection()
+        public void TestGetOracleConnection()//controle of database connectie werkt
         {
             var con = Netflix.DbCon.GetOracleConnection();
             var cmd = con.CreateCommand();
@@ -21,7 +21,7 @@ namespace UnitTestNetflix
 
         }
         [TestMethod]
-        public void TestGetNextProfileid()
+        public void TestGetNextProfileid()//controle of profielid goed wordt teruggegeven
         {
             var con = Netflix.DbCon.GetOracleConnection();
             var cmd = con.CreateCommand();
@@ -33,7 +33,7 @@ namespace UnitTestNetflix
             Assert.AreEqual(Netflix.DbCon.GetNextProfileid(), Netflix.DbCon.GetNextProfileid());
         }
         [TestMethod]
-        public void TestGetParameter()
+        public void TestGetParameter()//test voor parameters
         {
             string a = "";
             string b = "aaaaa";
@@ -42,7 +42,7 @@ namespace UnitTestNetflix
             Assert.AreNotEqual(Netflix.DbCon.GetParameter(a), Netflix.DbCon.GetParameter(b));
         }
         [TestMethod]
-        public void TestInsertProfile()
+        public void TestInsertProfile()//test voor insert errors
         {
             Assert.AreEqual(false, Netflix.DbCon.InsertProfile("", "", "", "", "1"));
             Assert.AreEqual(false, Netflix.DbCon.InsertProfile("dasd", "sad", "Volwassenen", "", "1"));

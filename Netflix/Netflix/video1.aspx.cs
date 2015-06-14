@@ -14,13 +14,13 @@ namespace Netflix
             string videoid = Request.QueryString["id"];
             GetInfo(videoid);
         }
-
+        //haald alle informatie op van uit het database
         void GetInfo(string videoid)
         {
-            string stringGenre = GetGenre(videoid);
+            string stringGenre = GetGenre(videoid);//Get genre via een andere query
             var con = DbCon.GetOracleConnection();
             var cmd = con.CreateCommand();
-
+            //pakt alle informatie via het doorgestuurde video id
             cmd.CommandText = "SELECT Regisseur, videocast, sfeer, streamingdetails, image from video WHERE videoid = :videoid";
 
             cmd.Parameters.Add(DbCon.GetParameter(videoid));
@@ -39,7 +39,7 @@ namespace Netflix
 
 
         }
-
+        // haalt alle genre op die de film/serie bezit
         string GetGenre(string videoid)
         {
             var con = DbCon.GetOracleConnection();

@@ -4,7 +4,7 @@
     <div id="infodiv">
         <div id="photo">
             <img  src="#" id="imageVideo" alt="Alternate Text" runat="server"/>
-        </div>
+        </div><%--Toont alle informatie--%>
         <div id="text">
             Maker <br />
             <br />

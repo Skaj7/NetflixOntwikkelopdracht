@@ -15,26 +15,17 @@ namespace Netflix
         public string  Name { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            //foreach (Control c in (Control)video)
+
         }
 
         public void loadData()
         {
             videoname.InnerText = Name;
-            //videoid.InnerText = id;
-            photo.Src = PhotoLink;
-            Toevideo.HRef = "http://localhost:10187/video1.aspx?id="+id;
+
+            photo.Src = PhotoLink;//toont foto
+            Toevideo.HRef = "http://localhost:10187/video1.aspx?id="+id;//onthoud id van film voor de informatiepagina
             Toevideo.Name = id;
-            Session["video" + id] = id;
             videotoe.HRef = VideoLink;
-
-            //var uc = (video1)Page.LoadControl("~/video1.ascx");
-            //uc.dit = id;
-        }
-
-        public void myFunction()
-        {
-
         }
     }
 }

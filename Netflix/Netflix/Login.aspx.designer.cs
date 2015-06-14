@@ -13,6 +13,24 @@ namespace Netflix {
     public partial class WebForm2 {
         
         /// <summary>
+        /// reqEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqEmail;
+        
+        /// <summary>
+        /// reqpassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqpassword;
+        
+        /// <summary>
         /// user control.
         /// </summary>
         /// <remarks>
@@ -31,12 +49,12 @@ namespace Netflix {
         protected global::System.Web.UI.WebControls.TextBox password;
         
         /// <summary>
-        /// Login control.
+        /// btnLogin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Login;
+        protected global::System.Web.UI.WebControls.Button btnLogin;
     }
 }
