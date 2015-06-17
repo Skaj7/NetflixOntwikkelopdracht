@@ -27,7 +27,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentDown" runat="server">
             <p style="  text-align: center; text-decoration: underline;">Nieuw profiel aanmaken</p><%--profiel maken--%>
-    <div style="float:left; margin-left:30%; font-family: Arial, Helvetica, sans-serif; font-weight: bold; padding: 5px;">   
+    <div style="float:left; margin-left:20%; font-family: Arial, Helvetica, sans-serif; font-weight: bold; padding: 5px;">   
         AFBEELDING <br />
         NAAM <br />
         LEEFTIJDSCATEGORIE <br />
@@ -35,10 +35,16 @@
         TAAL <br />
     </div>
     <div id="NewProfile" style="width: 300px; margin-left: 50px; margin-bottom: 80px; float:left;">
-        <asp:TextBox style="height: 14px;" ID="tbafbeelding" runat="server"></asp:TextBox> Not NULL
-        <asp:TextBox style="height: 14px;" ID="tbnaam" runat="server"></asp:TextBox> Not NULL
+        <asp:TextBox style="height: 14px;" ID="tbafbeelding" runat="server"></asp:TextBox> 
+        <asp:TextBox style="height: 14px;" ID="tbnaam" runat="server"></asp:TextBox>
         <asp:TextBox style="height: 14px;" ID="tbleeftijd" runat="server"></asp:TextBox> Kleine kinderen, Oudere kinderen, Tieners, Volwassenen <%--mogelijke opties--%>
-        <asp:TextBox style="height: 14px;" ID="tbtaal" runat="server"></asp:TextBox> Not NULL
+        <asp:TextBox style="height: 14px;" ID="tbtaal" runat="server"></asp:TextBox>
+    </div>
+    <div id="fieldV" style="width: 300px; margin-bottom: 80px; float:left;">
+        <asp:RequiredFieldValidator runat="server" id="reqAfbeelding" controltovalidate="tbafbeelding" errormessage="Please enter a picture link" enableclientscript="false" /> <br />
+        <asp:RequiredFieldValidator runat="server" id="reqNaamProfile" controltovalidate="tbnaam" errormessage="Please enter name" enableclientscript="false" /> <br />
+        <asp:RequiredFieldValidator runat="server" id="reqLeeftijd" controltovalidate="tbleeftijd" errormessage="Please enter age group" enableclientscript="false" /> <br /> <br />
+        <asp:RequiredFieldValidator runat="server" id="reqTaal" controltovalidate="tbtaal" errormessage="Please enter your language" enableclientscript="false" /> <br />
     </div>
     <asp:Button ID="newprofile" runat="server" Text="aanmaken" OnClick="newprofile_Click"/>
 </asp:Content>

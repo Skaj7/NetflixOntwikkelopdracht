@@ -56,16 +56,33 @@ namespace Netflix
                 }
                 i++;
             }
+            if (i == 2)
+            {
+                profile2.Visible = false;
+                lbl2.Visible = false;
+                image2.Visible = false;
+                i++;
+            }
+
+            if (i == 3)
+            {
+                profile3.Visible = false;
+                lbl3.Visible = false;
+                image3.Visible = false;
+            }
+            
         }
 
         protected void profiel1_Click(object sender, EventArgs e)
         {
             Session["profiel"] = leeftijd1;//session voor de leeftijd
+            Response.Redirect("http://localhost:10187/index.aspx");
         }
 
         protected void profiel2_Click(object sender, EventArgs e)
         {
             Session["profiel"] = leeftijd2;
+            Response.Redirect("http://localhost:10187/index.aspx");
         }
 
         protected void newprofile_Click(object sender, EventArgs e)
@@ -75,13 +92,14 @@ namespace Netflix
             bool result = DbCon.InsertProfile(tbafbeelding.Text, tbnaam.Text, tbleeftijd.Text, tbtaal.Text, accountid);
             if (!result)
             {
-                newprofile.Text = "failed to insert";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Profiel aan maken is gefaald')</script>");
             }
         }
 
         protected void profile3_Click(object sender, EventArgs e)
         {
             Session["profiel"] = leeftijd3;
+            Response.Redirect("http://localhost:10187/index.aspx");
         }
     }
 }

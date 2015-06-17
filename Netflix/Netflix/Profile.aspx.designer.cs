@@ -130,6 +130,42 @@ namespace Netflix {
         protected global::System.Web.UI.WebControls.TextBox tbtaal;
         
         /// <summary>
+        /// reqAfbeelding control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqAfbeelding;
+        
+        /// <summary>
+        /// reqNaamProfile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqNaamProfile;
+        
+        /// <summary>
+        /// reqLeeftijd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqLeeftijd;
+        
+        /// <summary>
+        /// reqTaal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqTaal;
+        
+        /// <summary>
         /// newprofile control.
         /// </summary>
         /// <remarks>

@@ -21,11 +21,11 @@ namespace Netflix
             bool result = Login();//checkt je inloggegevens
             if (!result)
             {
-                btnLogin.Text = "Inloggen is gefaald";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Inloggen is gefaald')</script>");
             }
             else
             {
-                btnLogin.Text = "U bent ingelogd";
+                Response.Redirect("http://localhost:10187/Profile.aspx");
             }
         }
         //returned bool voor geslaagd of niet
@@ -60,12 +60,13 @@ namespace Netflix
             {
                 Session["loggedIn"] = true;//onthoud ingelog
                 Session["account"] = connect;//onthoud accountId
+
                 return true;
             }
             else
             {
                 Session.Clear();
-                Session["loggedIn"] = false;
+                Session["loggedIn"] = false;     
                 return false;
             }
         }

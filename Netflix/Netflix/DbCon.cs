@@ -15,10 +15,17 @@ namespace Netflix
         //return dbconnectie
         public static DbConnection GetOracleConnection()
         {
-            var con = OracleClientFactory.Instance.CreateConnection();
-            con.ConnectionString = ConfigurationManager.ConnectionStrings["OracleConnection"].ConnectionString;//connection string van web.config
-            con.Open();
-            return con;
+            try
+            {
+                var con = OracleClientFactory.Instance.CreateConnection();
+                con.ConnectionString = ConfigurationManager.ConnectionStrings["OracleConnection"].ConnectionString;//connection string van web.config
+                con.Open();
+                return con;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
         //returned een parameter
         public static DbParameter GetParameter(string name)
@@ -38,6 +45,7 @@ namespace Netflix
         //return bool, check of het gelukt is
         public static bool InsertProfile(string afbeelding, string naam, string leeftijd, string taal, string accountid)
         {
+
             if (afbeelding == "" || naam == "" || leeftijd == "" || taal == "")//check null
             {
                 return false;
@@ -46,6 +54,7 @@ namespace Netflix
             {
                 return false;
             }
+
             var con = DbCon.GetOracleConnection();
             var cmd = con.CreateCommand();
 
@@ -71,9 +80,87 @@ namespace Netflix
             cmd.Parameters.Add(DbCon.GetParameter(leeftijd));
             cmd.Parameters.Add(DbCon.GetParameter(taal));
             cmd.Parameters.Add(paraAcc);
-            
-            cmd.ExecuteNonQuery();
 
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+            string[] arr = new string[5];
+
+
+            if (leeftijd == "Kleine kinderen")
+            {
+                arr = new string[1];
+                arr[0] = "3";
+            }
+
+            if (leeftijd == "Oudere kinderen")
+            {
+                arr = new string[2];
+                arr[0] = "3";
+                arr[1] = "4";
+            }
+
+            if (leeftijd == "Tieners")
+            {
+                arr = new string[4];
+                arr[0] = "3";
+                arr[1] = "4";
+                arr[2] = "1";
+                arr[3] = "2";
+            }
+
+            if (leeftijd == "Volwassenen")
+            {
+                arr = new string[5];
+                arr[0] = "3";
+                arr[1] = "4";
+                arr[2] = "1";
+                arr[3] = "2";
+                arr[4] = "5";
+            }
+
+
+            foreach (string s in arr)
+            {
+                var con1 = DbCon.GetOracleConnection();
+                var cmd1 = con.CreateCommand();
+
+                cmd1.CommandText = "INSERT INTO profiel_video (PROFIELID, VIDEOID, STERREN) VALUES(:profielid, :VIDEOID, null)";
+
+                var paraProId = cmd.CreateParameter();
+                paraProId.DbType = DbType.Int32;
+                paraProId.Value = profielid;
+                paraProId.ParameterName = "profielid";
+                paraProId.Direction = ParameterDirection.Input;
+
+                var paraV = cmd.CreateParameter();
+                paraV.DbType = DbType.Int32;
+                paraV.Value = Convert.ToInt32(s);
+                paraV.ParameterName = "VIDEOID";
+                paraV.Direction = ParameterDirection.Input;
+
+                cmd1.Parameters.Add(paraProId);
+                cmd1.Parameters.Add(paraV);
+
+                try
+                {
+                    cmd1.ExecuteNonQuery();
+                }
+                catch (Exception)
+                {
+
+                    return false;
+                }
+                
+
+            }
+           
             return true;
         }
         //return volgende profielid(max+1)
