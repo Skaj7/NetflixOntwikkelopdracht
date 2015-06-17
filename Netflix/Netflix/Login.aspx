@@ -13,7 +13,7 @@
             <asp:TextBox ID="user" runat="server"></asp:TextBox>
             </div><div>
             <asp:Label Text="Wachtwoord" runat="server" />
-            <asp:TextBox ID="password" runat="server"></asp:TextBox>
+            <asp:TextBox ID="password" runat="server" TextMode="Password" ></asp:TextBox>
                 <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="Login_Click" />
             </div>
         </div>
